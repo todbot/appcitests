@@ -7,17 +7,22 @@ platform:
 - x64
 
 install:
-- ps: $env:Path += ";C:\MinGW\bin;"
-- ps: $env:Path += ";C:\MinGW\msys\1.0\bin";
+#- ps: $env:Path += ";C:\MinGW\bin;"
+#- ps: $env:Path += ";C:\MinGW\msys\1.0\bin";
 - ps: $env:Path += ";C:\Program Files (x86)\Microsoft Visual Studio 14.0\vc\bin";
+- set PATH=C:\msys64\mingw64\bin;C:\msys64\usr\bin\;%PATH%
+- make --version
+- gcc --version
+
 
 build_script:
 #- ps: dir C:\MinGW\msys\1.0\bin
 - ps: dir C:\msys64
 - ps: dir C:\msys64\mingw64
 - ps: dir C:\msys64\mingw64\bin
-- ps: dir C:\msys64\mingw64\x86_64-w64-mingw32  
-- ps: dir C:\msys64\mingw32
+- ps: dir C:\msys64\usr\bin
+#- ps: dir C:\msys64\mingw64\x86_64-w64-mingw32\bin
+#- ps: dir C:\msys64\mingw32
 - ps: gcc -o cpp-struct-tsts.exe cpp-struct-tsts.cpp
 
 #artifacts:
