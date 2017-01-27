@@ -14,6 +14,8 @@ install:
 build_script:
 - ps: dir C:\MinGW\msys\1.0\bin
 - ps: dir C:\msys64
+- ps: dir C:\msys64\mingw64
+- ps: dir C:\msys64\mingw32
 - ps: gcc -o cpp-struct-tsts.exe cpp-struct-tsts.cpp
 
 #artifacts:

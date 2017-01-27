@@ -1,6 +1,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 int ledRangez[4][2] =
     {
@@ -21,7 +22,7 @@ typedef struct LedRange
     inline bool isBlack() { return color == 0; }
 
 } LedRange;
-    
+
 LedRange ledRanges[4] =
     {
     LedRange(0,4, 0xff00ff),
@@ -33,7 +34,7 @@ LedRange ledRanges[4] =
     //    { .low = 2, .high = 5, .color = 0xabcd1234 },
     };
 
-LedRange ledRangesB[4] = 
+LedRange ledRangesB[4] =
 {
 };
 
