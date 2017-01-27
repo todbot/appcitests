@@ -10,24 +10,24 @@ install:
 #- ps: $env:Path += ";C:\MinGW\bin;"
 #- ps: $env:Path += ";C:\MinGW\msys\1.0\bin";
 - ps: $env:Path += ";C:\Program Files (x86)\Microsoft Visual Studio 14.0\vc\bin";
-- set PATH=C:\msys64\mingw64\bin;C:\msys64\usr\bin\;%PATH%
-
+#- set PATH=C:\msys64\mingw64\bin;C:\msys64\usr\bin\;%PATH%
+- ps: $env:Path += ";C:\msys64\mingw64\bin;C:\msys64\usr\bin\"
 
 build_script:
 #- ps: dir C:\MinGW\msys\1.0\bin
-- ps: env
-- ps: make --version
-- ps: gcc --version
-- ps: dir C:\msys64
-- ps: dir C:\msys64\mingw64
-- ps: dir C:\msys64\mingw64\bin
-- ps: dir C:\msys64\usr\bin
+#- ps: env
+#- ps: make --version
+#- ps: gcc --version
+#- ps: dir C:\msys64
+#- ps: dir C:\msys64\mingw64
+#- ps: dir C:\msys64\mingw64\bin
+#- ps: dir C:\msys64\usr\bin
 #- ps: dir C:\msys64\mingw64\x86_64-w64-mingw32\bin
 #- ps: dir C:\msys64\mingw32
 - ps: gcc -o cpp-struct-tsts.exe cpp-struct-tsts.cpp
 
-#artifacts:
-#    - path: 'commandline\blink1-tool*.zip'
-#      name: blink1-tool
+artifacts:
+    - path: 'cpp-struct-tsts.exe'
+      name: proggie
 #    - path: 'commandline\blink1-lib*.zip'
 #      name: blink1-lib
