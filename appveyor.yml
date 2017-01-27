@@ -1,0 +1,23 @@
+os: unstable
+#environment:
+##
+
+platform:
+#- x86
+- x64
+
+install:
+- ps: $env:Path += ";C:\MinGW\bin;"
+- ps: $env:Path += ";C:\MinGW\msys\1.0\bin";
+- ps: $env:Path += ";C:\Program Files (x86)\Microsoft Visual Studio 14.0\vc\bin";
+
+build_script:
+- ps: dir C:\MinGW\msys\1.0\bin
+- ps: dir C:\msys64
+- ps: gcc -o cpp-struct-tsts.exe cpp-struct-tsts.cpp
+
+#artifacts:
+#    - path: 'commandline\blink1-tool*.zip'
+#      name: blink1-tool
+#    - path: 'commandline\blink1-lib*.zip'
+#      name: blink1-lib
