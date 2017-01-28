@@ -24,11 +24,13 @@ install:
       } else {
         $env:Path = "C:\msys64\mingw32\bin;C:\msys64\usr\bin;" + $env:Path
       }
+- ps: env
 
 build_script:
 - ps: env
 - ps: gcc --version
 - ps: uname -s
+- ps: zip -h
 #- ps: dir C:\msys64
 #- ps: dir C:\msys64\usr\bin
 #- ps: dir C:\msys64\mingw64\bin
