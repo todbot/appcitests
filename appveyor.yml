@@ -32,7 +32,7 @@ build_script:
 #- ps: dir C:\msys64\usr\bin
 #- ps: dir C:\msys64\mingw64\bin
 #- ps: dir C:\msys64\mingw32\bin
-- ps: gcc ---o cpp-struct-tsts.exe cpp-struct-tsts.cpp
+- ps: gcc -o cpp-struct-tsts.exe cpp-struct-tsts.cpp
 
 artifacts:
     - path: 'cpp-struct-tsts.exe'
