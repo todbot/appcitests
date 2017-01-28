@@ -13,7 +13,7 @@ platform:
 - x64
 
 install:
-set "PATH=C:\msys64\usr\bin;C:\msys64\mingw%MBITS%\bin;%PATH%"
+#set "PATH=C:\msys64\usr\bin;C:\msys64\mingw%MBITS%\bin;%PATH%"
 #- ps: $env:Path += ";C:\MinGW\bin;"
 #- ps: $env:Path += ";C:\MinGW\msys\1.0\bin";
 - ps: $env:Path += ";C:\Program Files (x86)\Microsoft Visual Studio 14.0\vc\bin";
