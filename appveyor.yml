@@ -1,17 +1,24 @@
 os: unstable
 #environment:
-##
+#  matrix:
+#    - MSYSTEM : MINGW64
+#      MBITS: 64
+#      MARCH: x86_64
+#    - MSYSTEM : MINGW32
+#      MBITS: 32
+#      MARCH: i686
 
 platform:
 - x86
 - x64
 
 install:
+set "PATH=C:\msys64\usr\bin;C:\msys64\mingw%MBITS%\bin;%PATH%"
 #- ps: $env:Path += ";C:\MinGW\bin;"
 #- ps: $env:Path += ";C:\MinGW\msys\1.0\bin";
 - ps: $env:Path += ";C:\Program Files (x86)\Microsoft Visual Studio 14.0\vc\bin";
 #- set PATH=C:\msys64\mingw64\bin;C:\msys64\usr\bin\;%PATH%
-- ps: $env:Path += ";C:\msys64\mingw64\bin;C:\msys64\usr\bin\"
+#- ps: $env:Path += ";C:\msys64\mingw64\bin;C:\msys64\usr\bin\"
 - ps: if ( $env:Platform -eq "x64" ) {
         $env:Path += ";C:\msys64\mingw64\bin;C:\msys64\usr\bin\"
       } else {
@@ -21,14 +28,12 @@ install:
 build_script:
 - ps: env
 - ps: gcc --version
-- ps: dir C:\msys64
-- ps: dir C:\msys64\usr\bin
-- ps: dir C:\msys64\mingw64\bin
-- ps: dir C:\msys64\mingw32\bin
-- ps: gcc -o cpp-struct-tsts.exe cpp-struct-tsts.cpp
+#- ps: dir C:\msys64
+#- ps: dir C:\msys64\usr\bin
+#- ps: dir C:\msys64\mingw64\bin
+#- ps: dir C:\msys64\mingw32\bin
+- ps: gcc ---o cpp-struct-tsts.exe cpp-struct-tsts.cpp
 
 artifacts:
     - path: 'cpp-struct-tsts.exe'
       name: proggie
-#    - path: 'commandline\blink1-lib*.zip'
-#      name: blink1-lib
