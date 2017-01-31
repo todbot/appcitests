@@ -45,7 +45,9 @@ deploy:
     artifacdt: proggie
     provider: GitHub
     auth_token:
-        secure: t3puM/2hOig26EHhAodcZBc61NywF7/PFEpimR6SwGaCiqS07KR5i7iAhSABmBp7
+        secure:
+        secure: VYJPed/ilAHFpd7S0zW/C2U1jVqayW5QFBitwBqralJlKlgAPW6n1L1VUIOJswiW
+#        secure: t3puM/2hOig26EHhAodcZBc61NywF7/PFEpimR6SwGaCiqS07KR5i7iAhSABmBp7
     draft: false
     prerelease: false
     #on:
