@@ -48,5 +48,5 @@ deploy:
         secure: VYJPed/ilAHFpd7S0zW/C2U1jVqayW5QFBitwBqralJlKlgAPW6n1L1VUIOJswiW
     draft: false
     prerelease: false
-    #on:
-    #    appveyor_repo_tag: true
+    on:
+        appveyor_repo_tag: true
