@@ -13,7 +13,7 @@ language: cpp
 #    - libudev-dev
 
 script:
-    - gcc -o cpp-struct-tsts.exe cpp-struct-tsts.cpp
+    - gcc -o cpp-struct-tsts cpp-struct-tsts.cpp
 
 before_deploy:
     - DFILE1=$(ls cpp-struct-tsts)
