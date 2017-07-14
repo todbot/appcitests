@@ -55,7 +55,7 @@ typedef struct LedState
 int main()
 {
 
-    printf("hello there\n");
+    printf("hello there tod\n");
 
     LedRange ledRange;
     for( int i=0; i<4; i++ ) {
