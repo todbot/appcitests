@@ -30,7 +30,7 @@ build_script:
 - ps: env
 - ps: gcc --version
 - ps: uname -s
-- ps: zip -h
+#- ps: zip -h
 #- ps: dir C:\msys64
 #- ps: dir C:\msys64\usr\bin
 #- ps: dir C:\msys64\mingw64\bin
