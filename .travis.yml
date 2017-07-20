@@ -24,7 +24,7 @@ before_install:
 
 script:
     - gcc -o cpp-struct-tsts cpp-struct-tsts.cpp
-    - zip cpp-struct-tsts.zip cpp-struct-tsts
+    - zip cpp-struct-tsts-${TRAVIS_OS_NAME}.zip cpp-struct-tsts
     - mkdir build
     - mv *zip build
 
