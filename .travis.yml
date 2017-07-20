@@ -25,6 +25,8 @@ before_install:
 script:
     - gcc -o cpp-struct-tsts cpp-struct-tsts.cpp
     - zip cpp-struct-tsts.zip cpp-struct-tsts
+    - mkdir build
+    - mv *zip build
 
 before_deploy:
     - DFILE1=cpp-struct-tsts.zip
@@ -38,8 +40,9 @@ deploy:
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   bucket: todtravistest2
-  file:
-    - "${DFILE1}"
+  local_dir: build
+#  file:
+#    - "${DFILE1}"
 
 #  on:
     # repo: todbot/appcitests
