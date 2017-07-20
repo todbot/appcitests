@@ -16,6 +16,12 @@ os:
 #    - libusb-1.0-0-dev
 #    - libudev-dev
 
+before_install:
+# fix numerous error msgs like:
+# suppress 'shell_session_update' error https://github.com/travis-ci/travis-ci/issues/6307
+# https://github.com/travis-ci/travis-ci/issues/6307
+- rvm get stable
+
 script:
     - gcc -o cpp-struct-tsts cpp-struct-tsts.cpp
 
