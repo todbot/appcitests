@@ -1,5 +1,9 @@
 language: cpp
 
+os:
+#- linux
+- osx
+
 #addons:
 #  apt:
 #    sources:
@@ -22,11 +26,23 @@ before_deploy:
 
 deploy:
   skip_cleanup: true
-  provider: releases
-  api_key:
-    secure: kgZI97tZsgj/w+p8wFpLBT/ycfyRJUCDPtjguSSDLhMW8e2/Zz69j+Aav0M9NWe6xRpBCGfUzRU2XFkrjiMokHlXfzqBRCPRFy9Kh1FevS4VQRZhlbLNfObsHUL6Hn7omDZ2JwNrObaBxTuMdPKF7n8WjzuvdjSGVTuSPUXj7GF03AKkOHju0mWefV5NUrSym4BbddJ+Qlx6tqlXJ9unyAG7lennlf5j1OoyUDCZAfQmyM/5PZr9OApTFPXmpJp3XLhp6W4CTm1L4KJOA2g3KStwaTMF9KUfYZ6dj+plswfTF8VaNd8poLnTOEWfnH2vr5UwuKr5Q92XdVVUVFJmW3wkiNoWo+gHuwRCayKjIar67Lg0En6AMDkWLQ7GMaeg4WD4E0MAqggFDnTm53PSbWP/kPsAB+dZsPm3BR++DzL+YdlAK2vZIwAnK8mOhTx7cWaa6HoZr+sh1ENJoaBSxGxjxBmZqa1O5/KNg32r32J2k5eJX9A5PiIuSrAm4hS0DTJyl6hbcVOPrSyrVHyK0qrODrE7H+CTw/ckYshENd3hnRrSbotRCbILkOLy8Ln1voHKXKbzbpP3O5cR6lo8+Wivcf0P5GubQwDxdV8QDBp18cqgeWSIZhcZH/g3D9BotVJ3Hoo0MSJi4DmExbF9heN1k5/PQEY3C+7kaudIuJY=
+  provider: s3
+  # You can refer to environment variables from Travis repo settings!
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  bucket: todtravistest2
+  #  provider: releases
+  #  api_key:
+  #    secure: kgZI97tZsgj/w+p8wFpLBT/ycfyRJUCDPtjguSSDLhMW8e2/Zz69j+Aav0M9NWe6xRpBCGfUzRU2XFkrjiMokHlXfzqBRCPRFy9Kh1FevS4VQRZhlbLNfObsHUL6Hn7omDZ2JwNrObaBxTuMdPKF7n8WjzuvdjSGVTuSPUXj7GF03AKkOHju0mWefV5NUrSym4BbddJ+Qlx6tqlXJ9unyAG7lennlf5j1OoyUDCZAfQmyM/5PZr9OApTFPXmpJp3XLhp6W4CTm1L4KJOA2g3KStwaTMF9KUfYZ6dj+plswfTF8VaNd8poLnTOEWfnH2vr5UwuKr5Q92XdVVUVFJmW3wkiNoWo+gHuwRCayKjIar67Lg0En6AMDkWLQ7GMaeg4WD4E0MAqggFDnTm53PSbWP/kPsAB+dZsPm3BR++DzL+YdlAK2vZIwAnK8mOhTx7cWaa6HoZr+sh1ENJoaBSxGxjxBmZqa1O5/KNg32r32J2k5eJX9A5PiIuSrAm4hS0DTJyl6hbcVOPrSyrVHyK0qrODrE7H+CTw/ckYshENd3hnRrSbotRCbILkOLy8Ln1voHKXKbzbpP3O5cR6lo8+Wivcf0P5GubQwDxdV8QDBp18cqgeWSIZhcZH/g3D9BotVJ3Hoo0MSJi4DmExbF9heN1k5/PQEY3C+7kaudIuJY=
+
   file:
     - "${DFILE1}"
   on:
     repo: todbot/appcitests
-#    tags: true
+    tags: true
+
+  # Control deployment by setting a value for `on`. Setting the `branch`
+  # option to `master` means Travis will only attempt a deployment on
+  # builds of your repo's master branch (e.g., after you merge a PR).
+#  on:
+#    branch: master
