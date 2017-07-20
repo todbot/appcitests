@@ -30,7 +30,7 @@ build_script:
 - ps: env
 - ps: gcc --version
 - ps: uname -s
-- ps: pacman -S zip
+- ps: pacman -S zip --noconfirm
 #- ps: zip -h
 - ps: gcc -o cpp-struct-tsts.exe cpp-struct-tsts.cpp
 - ps: zip -r cpp-struct-tsts-Win_$env:Platform.zip cpp-struct-tsts.exe
