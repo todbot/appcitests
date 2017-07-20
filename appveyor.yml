@@ -36,7 +36,7 @@ build_script:
 - ps: zip -r cpp-struct-tsts-Win_$env:Platform.zip cpp-struct-tsts.exe
 
 artifacts:
-    - path: 'cpp-struct-tsts.exe'
+    - path: cpp-struct-tsts-Win_$env:Platform.zip
       name: proggie
 
 deploy:
@@ -46,7 +46,7 @@ deploy:
   secret_access_key:
       secure: QiRehApfnik9m7tDFwssuTgeLlcGO3LrnJvL6apGxESPOtBt/8beI6ebxczBBB99
   bucket: todtravistest2
-  artifact: cpp-struct-tsts-Win_$env:Platform.zip
+  #artifact: cpp-struct-tsts-Win_$env:Platform.zip
 #    artifacdt: proggie
 #    provider: GitHub
 #    auth_token:
