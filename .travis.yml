@@ -25,6 +25,7 @@ before_install:
 script:
     - gcc -o cpp-struct-tsts cpp-struct-tsts.cpp
     - zip cpp-struct-tsts-${TRAVIS_OS_NAME}.zip cpp-struct-tsts
+    # 's3' provider needs a directory to send, so make one
     - mkdir build
     - mv *zip build
 
@@ -40,4 +41,5 @@ deploy:
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   bucket: todtravistest2
+  # 's3' provider doesn't do "file:" and only copies a directory, so set that
   local_dir: build
