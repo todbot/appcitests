@@ -36,7 +36,7 @@ build_script:
 - ps: zip -r cpp-struct-tsts-Win_$env:Platform.zip cpp-struct-tsts.exe
 
 artifacts:
-    - path: cpp-struct-tsts-Win_$env:Platform.zip
+    - path: cpp-struct-tsts-Win_$(Platform).zip
       name: proggie
 
 deploy:
