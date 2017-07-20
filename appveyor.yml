@@ -30,23 +30,28 @@ build_script:
 - ps: env
 - ps: gcc --version
 - ps: uname -s
+- ps: pacman -S zip
 #- ps: zip -h
-#- ps: dir C:\msys64
-#- ps: dir C:\msys64\usr\bin
-#- ps: dir C:\msys64\mingw64\bin
-#- ps: dir C:\msys64\mingw32\bin
 - ps: gcc -o cpp-struct-tsts.exe cpp-struct-tsts.cpp
+- ps: zip -r cpp-struct-tsts-Win_$env:Platform.zip cpp-struct-tsts.exe
 
 artifacts:
     - path: 'cpp-struct-tsts.exe'
       name: proggie
 
 deploy:
-    artifacdt: proggie
-    provider: GitHub
-    auth_token:
-        secure: VYJPed/ilAHFpd7S0zW/C2U1jVqayW5QFBitwBqralJlKlgAPW6n1L1VUIOJswiW
-    draft: false
-    prerelease: false
-    on:
-        appveyor_repo_tag: true
+  provider: S3
+  access_key_id:
+      secure: k+MjsHqRpP9DkNI3S+8W5CedlW+P6MbL2I+s9UKfH2w=
+  secret_access_key:
+      secure: QiRehApfnik9m7tDFwssuTgeLlcGO3LrnJvL6apGxESPOtBt/8beI6ebxczBBB99
+  bucket: todtravistest2
+  artifact: cpp-struct-tsts-Win_$env:Platform.zip
+#    artifacdt: proggie
+#    provider: GitHub
+#    auth_token:
+#        secure: VYJPed/ilAHFpd7S0zW/C2U1jVqayW5QFBitwBqralJlKlgAPW6n1L1VUIOJswiW
+#    draft: false
+#    prerelease: false
+#    on:
+#        appveyor_repo_tag: true
