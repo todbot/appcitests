@@ -48,3 +48,4 @@ deploy:
   bucket: todtravistest2
   # 's3' provider doesn't do "file:" and only copies a directory, so set that
   local_dir: build
+  upload-dir: appcitests

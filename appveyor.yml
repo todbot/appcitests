@@ -46,6 +46,7 @@ deploy:
   secret_access_key:
       secure: QiRehApfnik9m7tDFwssuTgeLlcGO3LrnJvL6apGxESPOtBt/8beI6ebxczBBB99
   bucket: todtravistest2
+  folder: appcitests
   #artifact: cpp-struct-tsts-Win_$env:Platform.zip
 #    artifacdt: proggie
 #    provider: GitHub
