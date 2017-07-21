@@ -37,7 +37,7 @@ before_deploy:
 addons:
     artifacts: true
     paths:
-        - {DFILE1}
+        - "${DFILE1}"
 
 deploy:
   skip_cleanup: true
