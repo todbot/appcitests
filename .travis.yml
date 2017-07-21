@@ -27,12 +27,17 @@ script:
     - zip cpp-struct-tsts-${TRAVIS_OS_NAME}.zip cpp-struct-tsts
     # 's3' provider needs a directory to send, so make one
     - mkdir build
-    - mv *zip build
+    - cp *zip build
 
 before_deploy:
-    - DFILE1=cpp-struct-tsts.zip
-    #- DFILE2=$(ls commandline/blink1-lib*zip)
-    #- DFILE3=$(ls commandline/blink1-tiny-server*zip)
+    - DFILE1=cpp-struct-tsts-${TRAVIS_OS_NAME}.zip
+#    #- DFILE2=$(ls commandline/blink1-lib*zip)
+#    #- DFILE3=$(ls commandline/blink1-tiny-server*zip)
+
+addons:
+    artifacts: true
+    paths:
+        - {DFILE1}
 
 deploy:
   skip_cleanup: true
@@ -42,4 +47,4 @@ deploy:
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   bucket: todtravistest2
   # 's3' provider doesn't do "file:" and only copies a directory, so set that
-  local_dir: build
+  #local_dir: build
